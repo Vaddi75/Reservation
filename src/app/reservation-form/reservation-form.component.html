@@ -1,0 +1,76 @@
+<h2>Hotel Booking Form</h2>
+
+<div>
+  <form>
+    <div>
+      <label>First Name</label>
+      <input type="text">
+    </div>
+
+    <div>
+      <label>Last Name</label>
+      <input type="text">
+    </div>
+
+    <div>
+      <label>Email</label>
+      <input type="email">
+    </div>
+
+    <div>
+      <label>Location</label>
+      <input type="text">
+    </div>
+
+    <div>
+      <label>Hotel Name</label>
+      <input type="text">
+    </div>
+
+    <div>
+      <label>Number Of Guests</label>
+      <input type="number">
+    </div>
+
+    <div>
+      <label>Check In Date</label>
+      <input type="date">
+    </div>
+
+    <div>
+      <label>Check Out Date</label>
+      <input type="date">
+    </div>
+
+  <div>
+    <button>Book</button>
+  </div>
+
+  </form>
+</div>
+
+<!-- We have three ways to send the data that we get from the user to this html form to the ts file in
+our angular application
+
+//Way  1 Two-Way Data Binding
+<form><input type="text" name="username" [(ngModel)]="username" />
+  <button (click)="onSubmit()">Submit</button></form>
+
+  //Way 2 Using Template-Driven Forms:
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
+  <input type="text" name="username" ngModel />
+  <button type="submit">Submit</button>
+</form>
+
+//way 3
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <input type="text" name="username" formControlName="username" />
+  <button type="submit">Submit</button>
+</form>
+
+-->
+
+
+
+
+
