@@ -6,6 +6,7 @@ import { ReservationListComponent } from './reservation-list/reservation-list.co
 
 const routes: Routes = [
   {path:"new",component:ReservationFormComponent},
+  {path:"update/:id",component:ReservationFormComponent},
   {path:"bookings",component:ReservationListComponent}
 ];
 

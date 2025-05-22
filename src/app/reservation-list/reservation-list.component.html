@@ -1,1 +1,43 @@
-<p>reservation-list works!</p>
+<table>
+  <thead>
+    <th>
+      firstName
+    </th>
+    <th>
+      lastName
+    </th>
+    <th>
+      email
+    </th><th>
+      location
+    </th>
+    <th>
+      hotelName
+    </th>
+    <th>
+      numberOfGuests
+    </th>
+    <th>
+      checkInDate
+    </th><th>
+      checkOutDate
+    </th>
+    <th>
+      Actions
+    </th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of reservationsInList">
+      <td>{{i.firstName}}</td>
+      <td>{{i.lastName}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.location}}</td>
+      <td>{{i.hotelName}}</td>
+      <td>{{i.numberOfGuests}}</td>
+      <td>{{i.checkInDate}}</td>
+      <td>{{i.checkOutDate}}</td>
+      <button (click)="update(i.id)">Edit</button>
+      <button (click)="delete(i.id)">delete</button>
+    </tr>
+  </tbody>
+</table>

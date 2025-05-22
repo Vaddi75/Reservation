@@ -1,5 +1,5 @@
 export interface ReservationModel {
-  id:string;
+  id:number;
   firstName:string;
   lastName:string;
   email:string;
