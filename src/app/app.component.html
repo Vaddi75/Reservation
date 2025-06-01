@@ -46,9 +46,34 @@
 
   -->
 
-  <h1>Aditya Hotel Surf</h1>
+  <!-- <h1>Aditya Hotel Surf</h1>
   <button routerLink="/new">Book a Hotel</button>
   <button routerLink="/bookings">My bookings</button>
   <hr>
-  <router-outlet></router-outlet>
-  
+  <router-outlet></router-outlet> -->
+  <!-- gemini -->
+<div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col">
+  <header class="p-8 text-center">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight leading-tight drop-shadow-lg">
+      Aditya Hotel Surf
+    </h1>
+    <nav class="flex justify-center items-center space-x-4 md:space-x-8">
+      <button
+        routerLink="/new"
+        class="px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-full shadow-lg hover:from-green-600 hover:to-green-700 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-300">
+        Book a Hotel
+      </button>
+      <button
+        routerLink="/bookings"
+        class="px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold rounded-full shadow-lg hover:from-blue-600 hover:to-indigo-700 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300">
+        My Bookings
+      </button>
+    </nav>
+    <hr class="my-10 mx-auto w-4/5 border-t-2 border-gray-300 opacity-70">
+  </header>
+
+  <main class="flex-grow p-4 md:p-8">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+

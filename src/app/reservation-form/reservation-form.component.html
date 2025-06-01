@@ -1,4 +1,4 @@
-<h2>Hotel Booking Form</h2>
+<!-- <h2>Hotel Booking Form</h2>
 
 <div>
   <form
@@ -83,7 +83,154 @@
   </div>
 
   </form>
+</div> -->
+
+<!-- gemini -->
+<div class="container mx-auto p-8 bg-gray-50 min-h-screen flex items-center justify-center">
+  <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md">
+    <h2 class="text-3xl font-extrabold text-gray-900 mb-8 text-center tracking-tight">
+      Hotel Booking Form
+    </h2>
+
+    <form
+      id="reservationForm"
+      [formGroup]="itemForm"
+      (ngSubmit)="onSubmit()">
+
+      <div class="mb-4">
+        <label for="firstName" class="block text-gray-700 text-sm font-bold mb-2">First Name</label>
+        <input
+          type="text"
+          id="firstName"
+          formControlName="firstName"
+          class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+          placeholder="Enter first name">
+        <div *ngIf="itemForm.get('firstName')?.invalid && itemForm.get('firstName')?.touched" class="text-red-500 text-xs mt-1">
+          First Name is required.
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="lastName" class="block text-gray-700 text-sm font-bold mb-2">Last Name</label>
+        <input
+          type="text"
+          id="lastName"
+          formControlName="lastName"
+          class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+          placeholder="Enter last name">
+        <div *ngIf="itemForm.get('lastName')?.invalid && itemForm.get('lastName')?.touched" class="text-red-500 text-xs mt-1">
+          Last Name is required.
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+          placeholder="Enter email address">
+        <div *ngIf="itemForm.get('email')?.invalid && itemForm.get('email')?.touched" class="text-red-500 text-xs mt-1">
+          <span *ngIf="itemForm.get('email')?.errors?.['required']">Email is required.</span>
+          <span *ngIf="itemForm.get('email')?.errors?.['email']">Enter a valid email address.</span>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="location" class="block text-gray-700 text-sm font-bold mb-2">Location</label>
+        <input
+          type="text"
+          id="location"
+          formControlName="location"
+          class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+          placeholder="e.g., New York">
+        <div *ngIf="itemForm.get('location')?.invalid && itemForm.get('location')?.touched" class="text-red-500 text-xs mt-1">
+          Location is required.
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="hotelName" class="block text-gray-700 text-sm font-bold mb-2">Hotel Name</label>
+        <input
+          type="text"
+          id="hotelName"
+          formControlName="hotelName"
+          class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+          placeholder="e.g., Grand Hyatt">
+        <div *ngIf="itemForm.get('hotelName')?.invalid && itemForm.get('hotelName')?.touched" class="text-red-500 text-xs mt-1">
+          Hotel Name is required.
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="numberOfGuests" class="block text-gray-700 text-sm font-bold mb-2">Number Of Guests</label>
+        <input
+          type="number"
+          id="numberOfGuests"
+          formControlName="numberOfGuests"
+          class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+          placeholder="e.g., 2">
+        <div *ngIf="itemForm.get('numberOfGuests')?.invalid && itemForm.get('numberOfGuests')?.touched" class="text-red-500 text-xs mt-1">
+          <span *ngIf="itemForm.get('numberOfGuests')?.errors?.['required']">Number of Guests is required.</span>
+          <span *ngIf="itemForm.get('numberOfGuests')?.errors?.['min']">Number of Guests must be at least 1.</span>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="checkInDate" class="block text-gray-700 text-sm font-bold mb-2">Check In Date</label>
+        <input
+          type="date"
+          id="checkInDate"
+          formControlName="checkInDate"
+          class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200">
+        <div *ngIf="itemForm.get('checkInDate')?.invalid && itemForm.get('checkInDate')?.touched" class="text-red-500 text-xs mt-1">
+          Check In Date is required.
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <label for="checkOutDate" class="block text-gray-700 text-sm font-bold mb-2">Check Out Date</label>
+        <input
+          type="date"
+          id="checkOutDate"
+          formControlName="checkOutDate"
+          class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200">
+        <div *ngIf="itemForm.get('checkOutDate')?.invalid && itemForm.get('checkOutDate')?.touched" class="text-red-500 text-xs mt-1">
+          Check Out Date is required.
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <button
+          type="submit"
+          [disabled]="itemForm.invalid"
+          class="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 disabled:opacity-50 disabled:cursor-not-allowed">
+          {{ itemId ? 'Update Booking' : 'Book Now' }}
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- <div>
   <form

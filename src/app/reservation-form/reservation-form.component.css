@@ -1,0 +1,81 @@
+/* reservation-form.component.css */
+
+/* Import Google Fonts - Inter for a modern, clean look */
+/* Note: In a typical Angular setup, you might import fonts globally in styles.css or index.html */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Apply Inter font to the component's elements */
+:host {
+  font-family: 'Inter', sans-serif;
+  display: block; /* Ensures the component takes up its own space */
+}
+
+/* Custom styles for form elements to enhance Tailwind defaults */
+/* These are examples and can be adjusted or removed if Tailwind classes are sufficient */
+
+/* Focus state for inputs */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Custom blue ring shadow */
+  border-color: #3b82f6; /* Blue border on focus */
+}
+
+/* Style for disabled button */
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  filter: grayscale(50%); /* Make it slightly desaturated when disabled */
+}
+
+/* Optional: Custom scrollbar for better aesthetics on overflow (Webkit browsers) */
+/* Apply this to a div that might overflow, e.g., if your form content is very long */
+/* Example: .overflow-auto-container { overflow-y: auto; } */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Responsive adjustments for smaller screens if needed, beyond Tailwind's utility classes */
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem; /* Reduce padding on very small screens */
+  }
+
+  .bg-white {
+    padding: 1.5rem; /* Reduce form padding */
+  }
+
+  h2 {
+    font-size: 2rem; /* Adjust heading size */
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Add any specific styles for validation messages if not handled purely by Tailwind */
+.text-red-500 {
+  font-size: 0.75rem; /* Ensure consistent small text for errors */
+  margin-top: 0.25rem;
+}
+
+/* You can add more specific styles here if you want to override or augment Tailwind */
+/* For example, if you want a custom shadow for all labels, etc. */
+/* label {
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+} */

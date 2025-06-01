@@ -1,4 +1,4 @@
-<table>
+<!-- <table>
   <thead>
     <th>
       firstName
@@ -36,8 +36,66 @@
       <td>{{i.numberOfGuests}}</td>
       <td>{{i.checkInDate}}</td>
       <td>{{i.checkOutDate}}</td>
-      <button (click)="update(i.id)">Edit</button>
-      <button (click)="delete(i.id)">delete</button>
+      <button (click)="updateReservation(i.id)">Edit</button>
+      <button (click)="deleteReservation(i.id)">delete</button>
     </tr>
   </tbody>
-</table>
+</table> -->
+
+<!-- gemini -->
+<div class="container mx-auto p-8 bg-gray-50 min-h-screen">
+  <h2 class="text-4xl font-extrabold text-gray-900 mb-8 text-center tracking-tight">
+    Hotel Reservations
+  </h2>
+
+  <div class="overflow-x-auto shadow-xl rounded-lg border border-gray-200">
+    <table class="min-w-full bg-white divide-y divide-gray-200">
+      <thead class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+        <tr>
+          <th class="py-4 px-6 text-left text-xs font-semibold uppercase tracking-wider rounded-tl-lg">First Name</th>
+          <th class="py-4 px-6 text-left text-xs font-semibold uppercase tracking-wider">Last Name</th>
+          <th class="py-4 px-6 text-left text-xs font-semibold uppercase tracking-wider">Email</th>
+          <th class="py-4 px-6 text-left text-xs font-semibold uppercase tracking-wider">Location</th>
+          <th class="py-4 px-6 text-left text-xs font-semibold uppercase tracking-wider">Hotel Name</th>
+          <th class="py-4 px-6 text-left text-xs font-semibold uppercase tracking-wider">Guests</th>
+          <th class="py-4 px-6 text-left text-xs font-semibold uppercase tracking-wider">Check-in Date</th>
+          <th class="py-4 px-6 text-left text-xs font-semibold uppercase tracking-wider">Check-out Date</th>
+          <th class="py-4 px-6 text-center text-xs font-semibold uppercase tracking-wider rounded-tr-lg">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+        <tr *ngFor="let reservation of reservations$ | async" class="hover:bg-blue-50 transition duration-200 ease-in-out">
+          <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-800">{{ reservation.firstName }}</td>
+          <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-800">{{ reservation.lastName }}</td>
+          <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-800">{{ reservation.email }}</td>
+          <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-800">{{ reservation.location }}</td>
+          <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-800">{{ reservation.hotelName }}</td>
+          <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-800">{{ reservation.numberOfGuests }}</td>
+          <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-800">{{ reservation.checkInDate | date:'mediumDate' }}</td>
+          <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-800">{{ reservation.checkOutDate | date:'mediumDate' }}</td>
+          <td class="py-4 px-6 text-center whitespace-nowrap">
+            <button (click)="updateReservation(reservation.id)"
+                    class="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-2 px-5 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-75 mr-2">
+              Edit
+            </button>
+            <button (click)="deleteReservation(reservation.id)"
+                    class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold py-2 px-5 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75">
+              Delete
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="(reservations$ | async)?.length === 0">
+          <td colspan="9" class="py-10 px-6 text-center text-gray-500 text-lg">No reservations found. Start by adding a new one!</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-10 text-center">
+    <button (click)="router.navigate(['/add'])"
+            class="bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-purple-700 hover:to-indigo-800 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-75">
+      Add New Reservation
+    </button>
+  </div>
+</div>
+

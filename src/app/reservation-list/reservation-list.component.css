@@ -1,0 +1,175 @@
+/* reservation-list.component.css */
+
+/* Import Google Fonts - Inter for a modern, clean look */
+/* Note: In a typical Angular setup, you might import fonts globally in styles.css or index.html */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Apply Inter font to the component's elements */
+:host {
+  font-family: 'Inter', sans-serif;
+  display: block; /* Ensures the component takes up its own space */
+}
+
+/* General table styling enhancements */
+table {
+  border-collapse: separate; /* Allows for rounded corners on the table */
+  border-spacing: 0;
+}
+
+/* Style for table headers */
+th {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-weight: 600; /* Semi-bold */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #3b82f6; /* Blue-600 from Tailwind */
+  color: #ffffff; /* White text */
+  position: sticky;
+  top: 0; /* Makes headers sticky if the table scrolls */
+  z-index: 10; /* Ensures headers are above content when scrolling */
+}
+
+/* Rounded corners for the first and last header cells */
+th:first-child {
+  border-top-left-radius: 0.5rem; /* rounded-lg */
+}
+
+th:last-child {
+  border-top-right-radius: 0.5rem; /* rounded-lg */
+}
+
+/* Style for table data cells */
+td {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 0.875rem; /* text-sm */
+  color: #374151; /* Gray-800 */
+  border-bottom: 1px solid #e5e7eb; /* Gray-200 */
+}
+
+/* Hover effect for table rows */
+tbody tr:hover {
+  background-color: #eff6ff; /* Blue-50 from Tailwind */
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Remove bottom border from the last row */
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Button styling (similar to form, but ensure consistency) */
+button {
+  font-weight: 600; /* Semi-bold */
+  padding: 0.5rem 1.25rem; /* py-2 px-5 */
+  border-radius: 9999px; /* rounded-full */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+  transition: all 0.3s ease-in-out;
+  transform: scale(1);
+  outline: none;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Blue ring focus */
+}
+
+/* Specific button colors (these should match your HTML's gradient classes) */
+.bg-gradient-to-r.from-green-500.to-green-600 {
+  /* This is a placeholder; actual gradient is handled by Tailwind classes in HTML */
+  /* If you need to define a solid fallback or adjust, do it here */
+  /* background-color: #22c55e; */
+}
+
+.bg-gradient-to-r.from-red-500.to-red-600 {
+  /* background-color: #ef4444; */
+}
+
+.bg-gradient-to-r.from-purple-600.to-indigo-700 {
+  /* background-color: #9333ea; */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Make table columns stack or reduce padding on smaller screens */
+  table, thead, tbody, th, td, tr {
+    display: block; /* Make table elements behave like block elements */
+  }
+
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px; /* Hide table headers visually */
+  }
+
+  tr {
+    margin-bottom: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    overflow: hidden; /* Ensure rounded corners apply */
+  }
+
+  td {
+    border: none; /* Remove individual cell borders */
+    position: relative;
+    padding-left: 50%; /* Make space for pseudo-element label */
+    text-align: right;
+  }
+
+  td:before {
+    /* Create a pseudo-element to display the header label */
+    content: attr(data-label); /* Get label from data-label attribute on td */
+    position: absolute;
+    left: 0;
+    width: 45%;
+    padding-left: 1rem;
+    font-weight: 600;
+    text-align: left;
+    color: #4b5563; /* Gray-700 */
+  }
+
+  /* Specific adjustments for action buttons on mobile */
+  td:last-child {
+    text-align: center;
+    padding-left: 1rem; /* Adjust padding for buttons */
+  }
+
+  button {
+    width: calc(50% - 0.5rem); /* Make buttons take up half width, with a gap */
+    margin: 0.25rem; /* Add small margin */
+    display: inline-block;
+  }
+}
+
+/* Optional: Custom scrollbar for better aesthetics on overflow (Webkit browsers) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
